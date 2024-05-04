@@ -7,6 +7,7 @@
 <title>Struts Ecom</title>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/sharedcomponents/navbar.jsp"/>
 	qwe
 </body>
 </html>
