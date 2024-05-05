@@ -8,6 +8,6 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/sharedcomponents/navbar.jsp"/>
-	Login success
+	Page Not found
 </body>
 </html>

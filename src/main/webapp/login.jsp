@@ -14,8 +14,8 @@
 		<h2 class=" d-flex justify-content-center col-12">Welcome</h2>
 
 	    <div class="d-flex justify-content-center">
-			<s:form action="calculateSumAction" method="post">
-		    	<s:textfield name="usernane" size="10" label="Username" />
+			<s:form action="loginTrigger" method="post">
+		    	<s:textfield name="user" size="10" label="Username" />
 		        <s:textfield name="password" size="10" label="Password" />
 		        <s:submit class="col-12" value="Login" />
 		    </s:form>

@@ -8,6 +8,11 @@
 		<action name="calculateSumAction" class="action.StartAction">
 			<result name="success">home.jsp</result>
 		</action>
+		
+		<action name="loginTrigger" class="action.LoginAction">
+			<result name="success">index.jsp</result>
+			<result name="error">errorpage.jsp</result>
+		</action>
 	</package>
 </struts>
 
