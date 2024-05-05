@@ -1,10 +1,10 @@
 package connection;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
-public class Connection {
+public class DBConnection {
 
     private static Connection conn = null;
     
@@ -15,8 +15,8 @@ public class Connection {
     	    String URL = "jdbc:postgresql://localhost:5432/j_servlet_test_db";
     	    String username = "root";
     	    String password = "root";
-    	    
-    	    conn = (Connection) DriverManager.getConnection(URL, username, password); 	    
+    	    Class.forName("org.postgresql.Driver");
+    	    conn = DriverManager.getConnection(URL, username, password); 	    
     	}
     	return conn;
     }
