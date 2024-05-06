@@ -3,6 +3,10 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@page import="connection.DBConnection"  %>
+<%@page import="action.productAction.LoadAllProduct"  %>
+<%@page import="model.Product"  %>
+<%@ page import="java.util.List" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,7 +16,6 @@
 <style>
 	.card-grid {
 		background: #343a40;
-		color:red;
 		 grid-template-columns: 1fr 1fr 1fr;
 		display: grid;
   		column-gap: 50px;
@@ -22,10 +25,13 @@
 	}
 	
 	.card-item {
-		background: #eee;
-		max-width: 30%;
+		background: #7BD3EA;
+		max-width: 180px;
 		border-radius: 1.5rem;
+		text-align: center;
 	}
+	
+	
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Struts2 beginner example application</title>
@@ -36,44 +42,34 @@
 	Home Page
 	
 	<div class="card-grid">
-	
-			<div class="card border-dark mb-3 mt-3 " >
-			  <div class="card-header">Header</div>
-			  <div class="card-body text-dark">
-    			<img class="card-img-top" src="..." alt="Card image cap">
-			    <h5 class="card-title">Dark card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			</div>
-			<div class="card border-dark mb-3 mt-3 " >
-			  <div class="card-header">Header</div>
-			  <div class="card-body text-dark">
-    			<img class="card-img-top" src="..." alt="Card image cap">
-			    <h5 class="card-title">Dark card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			</div>
-			<div class="card border-dark mb-3 mt-3 " >
-			  <div class="card-header">Header</div>
-			  <div class="card-body text-dark">
-    			<img class="card-img-top" src="..." alt="Card image cap">
-			    <h5 class="card-title">Dark card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			</div>
-			<div class="card border-dark mb-3 mt-3 " >
-			  <div class="card-header">Header</div>
-			  <div class="card-body text-dark">
-    			<img class="card-img-top" src="..." alt="Card image cap">
-			    <h5 class="card-title">Dark card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			  </div>
-			</div>
-			
-			
-			
+		<% 
+			List<Product> list = LoadAllProduct.execute();
+			for(Product p: list){ %>
+				<div class="card border-dark mb-3 mt-3 " >
+				  <div class="card-header"> <h3><%= p.getName() %></h3> </div>
+				  <div class="card-body text-dark">
+	    			<img class="card-img-top" src= "<%= p.getImage() %>"  alt="Card image cap">
+				    <h5 class="card-title card-item mt-3 pt-2 pb-2"> <%= p.getCategory() %></h5>
+				    <p class="card-text">  </p>
+				  </div>
+				</div>
+			<%}
+		%>		
+		<% 
+			List<Product> list2 = LoadAllProduct.execute();
+			for(Product p: list2){ %>
+				<div class="card border-dark mb-3 mt-3 " >
+				  <div class="card-header"> <%= p.getName() %> </div>
+				  <div class="card-body text-dark">
+	    			<img class="card-img-top" src= "<%= p.getImage() %>"  alt="Card image cap">
+				    <h5 class="card-title"> <%= p.getCategory() %></h5>
+				    <p class="card-text">  </p>
+				  </div>
+				</div>
+			<%}
+		%>		
 	</div>
-  </div>
+
 	
 </body>
 </html>
